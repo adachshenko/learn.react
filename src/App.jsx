@@ -19,6 +19,14 @@ persons : [
 
  
   render() {
+
+    let style = {
+      backgroundColor: 'green',
+      color: 'white',
+      padding: '8px'
+    }
+
+    let classes = [];
     
     let persons = null;
     let symbols = (
@@ -47,17 +55,21 @@ persons : [
         </div>  
       );
 
+      style.backgroundColor = 'red';
+
     }
    return (
       <div className = "App">
       <input type="text" 
       onChange = {this.textChangedHandler}
       value={this.state.symbols} />
-      <p>{this.state.symbols.length}</p>
+      <p className={classes} >{this.state.symbols.length}</p>
       <ValidationComponent 
         numberOfSymbols={this.state.symbols.length}/>
           {symbols}
-          <button onClick = {this.togglePersonsHandler}>Show/Hide</button>    
+          <button 
+            onClick = {this.togglePersonsHandler}
+            style={style}>Show/Hide</button>    
           {persons}               
       </div>
     );
