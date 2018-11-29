@@ -27,6 +27,12 @@ persons : [
     }
 
     let classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push("red");
+    }
+    if (this.state.persons.length <= 1) {
+      classes.push("bold");
+    }
     
     let persons = null;
     let symbols = (
@@ -58,12 +64,14 @@ persons : [
       style.backgroundColor = 'red';
 
     }
+   
    return (
       <div className = "App">
+      <p className={classes.join(" ")}>Welcome</p>
       <input type="text" 
       onChange = {this.textChangedHandler}
       value={this.state.symbols} />
-      <p className={classes} >{this.state.symbols.length}</p>
+      <p>{this.state.symbols.length}</p>
       <ValidationComponent 
         numberOfSymbols={this.state.symbols.length}/>
           {symbols}
